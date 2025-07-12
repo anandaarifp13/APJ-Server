@@ -248,6 +248,134 @@ app.get("/api/rekap", async (req, res) => {
   }
 });
 
+// POST: Tambah Data USER (ke LIST USER)
+app.post("/api/user_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "user_dashboard", ...req.body })
+    });
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal tambah user dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+// POST: Tambah Data SUPPLIER (ke LIST SUPPLIER)
+app.post("/api/supplier_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "supplier_dashboard", ...req.body })
+    });
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal tambah supplier dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+// POST: Tambah Data BARANG (ke LIST BARANG)
+app.post("/api/barang_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "barang_dashboard", ...req.body })
+    });
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal tambah barang dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+// POST: Tambah Data OUTLET (ke LIST OUTLET)
+app.post("/api/outlet_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "outlet_dashboard", ...req.body })
+    });
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal tambah outlet dashboard.",
+      error: err.message,
+    });
+  }
+});
+// GET: Ambil Data USER
+app.get("/api/user_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(`${GAS_URL}?action=user_dashboard`);
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal ambil user dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+// GET: Ambil Data SUPPLIER
+app.get("/api/supplier_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(`${GAS_URL}?action=supplier_dashboard`);
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal ambil supplier dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+// GET: Ambil Data BARANG
+app.get("/api/barang_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(`${GAS_URL}?action=barang_dashboard`);
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal ambil barang dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+// GET: Ambil Data OUTLET
+app.get("/api/outlet_dashboard", async (req, res) => {
+  try {
+    const response = await fetch(`${GAS_URL}?action=outlet_dashboard`);
+    res.json(await response.json());
+  } catch (err) {
+    res.status(500).json({
+      status: "error",
+      message: "Gagal ambil outlet dashboard.",
+      error: err.message,
+    });
+  }
+});
+
+
 // === Taruh /ping DI SINI ===
 app.get("/ping", (req, res) => {
   res.status(200).send("pong");
